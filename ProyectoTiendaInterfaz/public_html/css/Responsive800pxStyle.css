@@ -1,0 +1,16 @@
+@media all and (max-width: 800px) {
+  body #capaSuperior #header #cabeceraContenidos #cabeceraLogo img {
+    width: 97px; }
+  body #capaSuperior #menuH #plataformas .menuH_plataforma {
+    font-size: 0.7em; }
+  body #capaSuperior #menuH #plataformas #icono_menu_movil {
+    display: inline-block; }
+  body #capaSuperior #seccionCentral #contenidos {
+    width: 100%; }
+    body #capaSuperior #seccionCentral #contenidos #articulos .articulos_noticia {
+      width: 95%;
+      float: left; }
+  body #capaSuperior #seccionCentral #menuV {
+    display: none; } }
+
+/*# sourceMappingURL=Responsive800pxStyle.css.map */

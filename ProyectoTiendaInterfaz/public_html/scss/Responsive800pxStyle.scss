@@ -1,0 +1,52 @@
+@media all and (max-width:800px){
+
+
+
+    body{
+
+        #capaSuperior{
+
+            #header{
+                #cabeceraContenidos{
+                    #cabeceraLogo{
+                        img{
+                            width:97px;
+                        }
+                    }
+                }
+
+            }
+
+            #menuH{
+                #plataformas{
+                    .menuH_plataforma{
+                        font-size:0.7em;
+                    }
+                    #icono_menu_movil{
+                        display:inline-block;
+                    }
+                }
+            }
+
+            #seccionCentral{
+                #contenidos{
+                    width:100%;
+                    #articulos{
+                        .articulos_noticia{
+                            width:95%;
+                            float:left;
+                        }
+                    }    
+                }
+                #menuV{
+                    display:none;
+                }
+            }
+
+
+        }
+
+    }
+
+}
+

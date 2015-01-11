@@ -1,0 +1,6 @@
+Nombres de clases: NombreDeClase                 Ej: EntidadBancaria
+Nombres de objetos: nombreDeClase                Ej: entidadBancaria
+Nombres de variables: atributoClase              Ej: idEntidadBancaria
+
+Estructura de packages: com.fpmislata.taronja.(banco||tienda).(common||dominio||persistencia||presentacion)
+

@@ -1,0 +1,237 @@
+@import "siteMixins.scss";
+@import "commonStyle.scss";
+
+body{
+    /* Hemos elegido una resolucion tipo para el disenio inicial */
+    width: $anchoPagina;
+    height: $altoPagina;
+
+    margin: 0;
+
+    background-color: $colorFondo;
+
+    font:{
+        family: "Century Gothic" !important;
+        size: $sizeFuenteBase;
+    }
+
+
+    #capaSuperior{/* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+        width: $anchoContenidos;
+        height: $altoPagina;
+        margin: 0 auto;
+
+        #header{
+            height: $altoHeader;
+            color: white;
+            & .areaLogin-texto{
+                margin: 12px 0;
+                font-size: 11px;
+            }
+            #header-Logo{
+                margin-top: 10px;
+                max-width: 85%;
+            }
+            #header-areaLogin{
+                background-color: rgba($colorFondoLogin,.2);
+                border-radius: 7px;
+                margin: 5px 0 0;
+                padding: 10px 20px 20px;
+            }
+        }
+
+        #menuH{
+            height: $altoMenuHorizontal;
+
+            #menuH-secciones{
+                a{
+                    height: $altoMenuHorizontal;
+                    color: white;
+                    padding: 3px 10px;
+                    background-color: transparent;
+
+                    &:hover, &:focus{
+                        font-style: italic;
+                        color: black;
+                        border-bottom-color: white;
+                        background-color: white;
+                    }
+                    &:hover{
+                        transition-duration: .3s;
+                    }
+                }
+            }
+            #menuH-iconoHome{
+                cursor: $cursorActivo;
+                max-width: 40%;
+                &:hover{
+                    opacity: .9;
+                    transition-duration: .2s;
+                }
+            }
+            #menuH-formBuscar{
+                transform: scale(.95,.85);
+            }
+        }
+
+        #seccionCentral{
+            height: $altoZonaCentro;
+
+            #menuV{
+                height: inherit;
+                font-size: 12px;
+
+                .listaMenuV{
+                    @include listaMenuV();
+
+                    .list-group-item-heading{ /*Titulo de cada una de las listas */
+                        @include tituloSeccionMenuV();
+                    }
+                    .list-group-item{ /*Cada una de las opciones de lista del menu */
+                        @include itemSeccionMenuV();
+                    }
+                }
+            }
+
+            #contenidoPrincipal{
+                height: $altoZonaCentro;
+                padding-top: 10px;
+                
+                .articulo{
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 13px;
+                    
+                    & .thumbnail{
+                        border: none;
+                        margin: 0;
+                        padding: 5px;
+                    }
+                    & p{
+                        margin: 0;
+                        line-height: 1.4;
+                    }
+                }
+            }
+
+            #panelInfo{
+                height: $altoZonaCentro;
+                margin: 0;
+                padding: 0;
+                background-color: rgba($colorTransparencia,.05);
+                p{
+                    padding: 25px 15px;
+                    color: $colorGrisBase;
+                }
+            }
+        }
+
+
+
+
+        /*        .botonBackEnd{
+                    @include estiloBotonBackEnd();
+                }*/
+
+
+        /*        #footer{
+                    height: $altoFooter;
+                    background-color: $colorGrisBase;
+        
+                    #footerContenidos{
+                         Seccion contenedora de los enlaces del footer a informacion de la pagina y a otras paginas (redes sociales, etc.) 
+                        height: $altoFooter*0.85;
+        
+                        #footerEnlaces{ Sección contenedora de los enlaces internos a otras secciones 
+                            font-size: 11px;
+                            width: 600px;
+                            @include reglasComunesFooter();
+        
+                            #listaFooterIzquierda, #listaFooterDerecha{
+                                display: inline-block;
+                                margin: 15px 60px;
+                                text-align: left;
+        
+                                .footerTituloMenu{
+                                    color: white;
+                                    font-weight: bold;
+                                    margin-bottom: 2px;
+                                }
+                                .footerItemMenu{
+                                    color: rgb(240,240,240);
+                                    text-decoration: none;
+        
+                                    &:hover{
+                                        color: #ffc29a;
+                                    }
+                                }
+        
+                            }
+                        }
+                        #redesSociales{ Iconos de enlace a redes sociales y otras paginas externas 
+                            width: 400px;
+                            @include reglasComunesFooter();
+        
+                            .iconoRedSocial{
+                                width: 28px;
+                                margin: 12px 7px;
+                                float: right;
+                                box-shadow: 3px 3px 2px grey;
+        
+                                &:hover{
+                                    transform: scale(1.1);
+                                    transition-duration: .3s;
+                                    cursor: $cursorActivo;
+                                }
+                            }
+        
+                            #iconoFacebook{
+                                margin-right: 60px;
+                            }
+                        }
+                        #infoContacto{ Banda inferior al footer con la informacion basica de contacto de la empresa 
+                            text-align: center;
+                            height: $altoFooter*0.15;
+                            color: white;
+                            font-size: 10px;
+        
+                            a{
+                                color: inherit;
+                            }
+                        }
+                    }
+                }*/
+    }
+
+    #capaFondo{/* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $anchoPagina;
+        height: $altoPagina;
+
+        #fondoBandaSup{
+            @include reglasCapaFondo($altoHeader, $colorCorporativo);
+        }
+        #fondoBandaBajoMenuH{
+            @include reglasCapaFondo($altoMenuHorizontal, $colorCorporativo);
+        }
+        #fondoCentro{
+            @include reglasCapaFondo($altoZonaCentro, transparent);
+        }
+        #fondoBandaInf{
+            @include reglasCapaFondo($altoFooter, transparent);
+        }
+    }
+
+    /*    #botonHome{
+            float: right;
+            clear: left;
+            margin: 50px 120px 0 0;
+        }*/
+
+}
+
+

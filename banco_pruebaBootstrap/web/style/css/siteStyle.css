@@ -1,0 +1,210 @@
+@charset "UTF-8";
+@font-face {
+  /* Adjunta en el proyecto la fuente de la pagina web */
+  font-family: "Century Gothic";
+  src: url("../font/gothic.ttf") format("truetype"); }
+body {
+  /* Hemos elegido una resolucion tipo para el disenio inicial */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+  font-family: "Century Gothic" !important;
+  font-size: 15px;
+  /*    #botonHome{
+          float: right;
+          clear: left;
+          margin: 50px 120px 0 0;
+      }*/ }
+  body #capaSuperior {
+    /* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    /*        .botonBackEnd{
+                @include estiloBotonBackEnd();
+            }*/
+    /*        #footer{
+                height: $altoFooter;
+                background-color: $colorGrisBase;
+    
+                #footerContenidos{
+                     Seccion contenedora de los enlaces del footer a informacion de la pagina y a otras paginas (redes sociales, etc.) 
+                    height: $altoFooter*0.85;
+    
+                    #footerEnlaces{ Secci├│n contenedora de los enlaces internos a otras secciones 
+                        font-size: 11px;
+                        width: 600px;
+                        @include reglasComunesFooter();
+    
+                        #listaFooterIzquierda, #listaFooterDerecha{
+                            display: inline-block;
+                            margin: 15px 60px;
+                            text-align: left;
+    
+                            .footerTituloMenu{
+                                color: white;
+                                font-weight: bold;
+                                margin-bottom: 2px;
+                            }
+                            .footerItemMenu{
+                                color: rgb(240,240,240);
+                                text-decoration: none;
+    
+                                &:hover{
+                                    color: #ffc29a;
+                                }
+                            }
+    
+                        }
+                    }
+                    #redesSociales{ Iconos de enlace a redes sociales y otras paginas externas 
+                        width: 400px;
+                        @include reglasComunesFooter();
+    
+                        .iconoRedSocial{
+                            width: 28px;
+                            margin: 12px 7px;
+                            float: right;
+                            box-shadow: 3px 3px 2px grey;
+    
+                            &:hover{
+                                transform: scale(1.1);
+                                transition-duration: .3s;
+                                cursor: $cursorActivo;
+                            }
+                        }
+    
+                        #iconoFacebook{
+                            margin-right: 60px;
+                        }
+                    }
+                    #infoContacto{ Banda inferior al footer con la informacion basica de contacto de la empresa 
+                        text-align: center;
+                        height: $altoFooter*0.15;
+                        color: white;
+                        font-size: 10px;
+    
+                        a{
+                            color: inherit;
+                        }
+                    }
+                }
+            }*/ }
+    body #capaSuperior #header {
+      height: 130px;
+      color: white; }
+      body #capaSuperior #header .areaLogin-texto {
+        margin: 12px 0;
+        font-size: 11px; }
+      body #capaSuperior #header #header-Logo {
+        margin-top: 10px;
+        max-width: 85%; }
+      body #capaSuperior #header #header-areaLogin {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 7px;
+        margin: 5px 0 0;
+        padding: 10px 20px 20px; }
+    body #capaSuperior #menuH {
+      height: 30px; }
+      body #capaSuperior #menuH #menuH-secciones a {
+        height: 30px;
+        color: white;
+        padding: 3px 10px;
+        background-color: transparent; }
+        body #capaSuperior #menuH #menuH-secciones a:hover, body #capaSuperior #menuH #menuH-secciones a:focus {
+          font-style: italic;
+          color: black;
+          border-bottom-color: white;
+          background-color: white; }
+        body #capaSuperior #menuH #menuH-secciones a:hover {
+          transition-duration: .3s; }
+      body #capaSuperior #menuH #menuH-iconoHome {
+        cursor: pointer;
+        max-width: 40%; }
+        body #capaSuperior #menuH #menuH-iconoHome:hover {
+          opacity: .9;
+          transition-duration: .2s; }
+      body #capaSuperior #menuH #menuH-formBuscar {
+        transform: scale(0.95, 0.85); }
+    body #capaSuperior #seccionCentral {
+      height: 745px; }
+      body #capaSuperior #seccionCentral #menuV {
+        height: inherit;
+        font-size: 12px; }
+        body #capaSuperior #seccionCentral #menuV .listaMenuV {
+          margin: 15px 0;
+          width: 145px; }
+          body #capaSuperior #seccionCentral #menuV .listaMenuV a {
+            display: block;
+            text-decoration: none;
+            color: inherit; }
+          body #capaSuperior #seccionCentral #menuV .listaMenuV .list-group-item-heading {
+            /*Titulo de cada una de las listas */
+            padding: 3px 0 3px 7px;
+            color: grey;
+            font-weight: bold;
+            background-color: rgba(190, 190, 190, 0.2);
+            box-shadow: 2px 1px #adadad;
+            border-radius: 4px; }
+          body #capaSuperior #seccionCentral #menuV .listaMenuV .list-group-item {
+            /*Cada una de las opciones de lista del menu */
+            padding: 2px 12px;
+            margin-bottom: 1px;
+            box-shadow: 1px 1px #bbb;
+            border: 1px;
+              border-top: none;
+              border-left: none;
+              border-radius: 4px; }
+            body #capaSuperior #seccionCentral #menuV .listaMenuV .list-group-item:hover {
+              background-color: #ff6600;
+              color: white;
+              font-style: italic;
+              cursor: pointer;
+              transform: scale(1.03);
+              transition-duration: .2s; }
+      body #capaSuperior #seccionCentral #contenidoPrincipal {
+        height: 745px;
+        padding-top: 10px; }
+        body #capaSuperior #seccionCentral #contenidoPrincipal .articulo {
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+          font-size: 13px; }
+          body #capaSuperior #seccionCentral #contenidoPrincipal .articulo .thumbnail {
+            border: none;
+            margin: 0;
+            padding: 5px; }
+          body #capaSuperior #seccionCentral #contenidoPrincipal .articulo p {
+            margin: 0;
+            line-height: 1.4; }
+      body #capaSuperior #seccionCentral #panelInfo {
+        height: 745px;
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.05); }
+        body #capaSuperior #seccionCentral #panelInfo p {
+          padding: 25px 15px;
+          color: #969696; }
+  body #capaFondo {
+    /* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+    body #capaFondo #fondoBandaSup {
+      height: 130px;
+      background-color: #ff6600; }
+    body #capaFondo #fondoBandaBajoMenuH {
+      height: 30px;
+      background-color: #ff6600; }
+    body #capaFondo #fondoCentro {
+      height: 745px;
+      background-color: transparent; }
+    body #capaFondo #fondoBandaInf {
+      height: 120px;
+      background-color: transparent; }
+
+/*# sourceMappingURL=siteStyle.css.map */

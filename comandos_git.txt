@@ -1,0 +1,19 @@
+git clone [URL del repositorio]			//Descarga un repositorio por primera vez
+
+cd [directorio]				//Cambiar al directorio del repositorio
+
+git add [archivo]				//Añade un nuevo archivo
+
+git commit -am ["mensaje"]			//Guarda en local los cambios
+
+git push					//Sube los cambios al repositorio
+
+git pull					//Descargar el contenido de un repositorio
+
+git fetch					//Descarga el contenido que no da conflicto
+
+git merge origin/master			//Indica los conflictos y da opcion a cambiarlos
+
+git log					//Muestra el log
+
+git status					//Muesta el estado de la carpeta del repositorio

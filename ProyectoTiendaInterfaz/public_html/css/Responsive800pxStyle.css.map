@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,iCAAgC;EAWR,gEAAG;IACC,KAAK,EAAC,IAAI;EASlB,wDAAiB;IACb,SAAS,EAAC,KAAK;EAEnB,wDAAiB;IACb,OAAO,EAAC,YAAY;EAM5B,8CAAW;IACP,KAAK,EAAC,IAAI;IAEN,4EAAkB;MACd,KAAK,EAAC,GAAG;MACT,KAAK,EAAC,IAAI;EAItB,yCAAM;IACF,OAAO,EAAC,IAAI",
+"sources": ["../scss/Responsive800pxStyle.scss"],
+"names": [],
+"file": "Responsive800pxStyle.css"
+}

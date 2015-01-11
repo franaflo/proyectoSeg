@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Taronja Games</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/Responsive800pxStyle.css" rel="stylesheet" type="text/css"/>
+
+        <script src="scripts.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <section id="capaSuperior">
+            <header id="header">
+                <section id="limitSup"></section><!-- Banda transparente superior -->
+
+                <section id="cabeceraContenidos">
+                    <section id="cabeceraLogo">
+
+                        <img id="logoImg" alt="logotipo" src="img/logo/logoTienda_blanco.png"/>   
+
+                    </section>
+                    <section id="cabeceraCentro"></section>                    
+                    <section id="cabeceraLogin">
+                        <div id="botonLogin" class="boton">Logeate</div>
+                        <div id="botonRegistro" class="boton">Registro</div>
+                    </section>
+                </section>
+            </header>
+
+            <nav id="menuH"><!-- Menú de navegación horizontal -->
+                <section id="plataformas"><!-- Modelos de consola y PC -->
+                    <div id="icono_menu_movil" class="menuH_plataforma" onclick="document.getElementById('opciones_movil').style='display:block;'">
+                        <img src="img/iconos/list.png" alt="Boton movil"/>
+
+                    </div>
+                    <div class="menuH_plataforma">PS4</div>
+                    <div class="menuH_plataforma">XONE</div>
+                    <div class="menuH_plataforma">PC</div>
+                    <div class="menuH_plataforma">WII U</div>
+                    <div class="menuH_plataforma">3DS</div>
+                </section>
+                <section id="buscar">
+                    <!--<img src="img/iconos/buscar.png" alt="buscar">-->
+                    <input id="buscador" name="buscador" type="text" value="buscar...">
+                </section>
+                <section id="carrito">
+                    <img src="img/iconos/carrito_icon.png" alt="carrito">
+                </section>
+            </nav>
+
+
+
+            <nav id="opciones_movil" class="menuV">
+                <div class="menuV_seccion">Inicio</div>
+                <div class="menuV_seccion">Noticias</div>
+                <div class="menuV_seccion">Ranking</div>
+                <div class="menuV_seccion">Consolas</div>
+                <div class="menuV_seccion">Videojuegos</div>
+                <div class="menuV_seccion">Ofertas</div>
+                <div class="menuV_seccion">Hoy Hablamos de...</div>
+            </nav>
+
+
+            <section id="seccionCentral">
+                <aside id="menuV" class="menuV">
+                    <nav id="menuV_menu">
+                        <div class="menuV_grupo">Menú</div>
+                        <div class="menuV_seccion">Inicio</div>
+                        <div class="menuV_seccion">Noticias</div>
+                        <div class="menuV_seccion">Ranking</div>
+                        <div class="menuV_seccion">Consolas</div>
+                        <div class="menuV_seccion">Videojuegos</div>
+                        <div class="menuV_seccion">Ofertas</div>
+                        <div class="menuV_seccion">Hoy Hablamos de...</div>
+                    </nav>
+                </aside><!-- Menú lateral izquierdo -->
+                <section id="contenidos">
+                    <section id="articulos">
+
+
+                        <!-- ESTA PARTE VA DINAMICA CON DOM  -->
+
+                        <article id="articulo1" class="articulos_noticia articulo_noticia_left">
+
+                            <img src="img/noticias/ShadowOfMordor.jpg" alt="Shadow Of Mordor">
+                            <div class="articulos_titulo">Tierra Media : Shadow Of Mordor</div>
+                            <div class="articulos_cuerpo">Una nueva aventura de acción ambientada en el universo de El Señor de los Anillos
+                                en la que tomaremos el control de Talion, un misterioso guerrero que se adentra en
+                                las peligrosas tierras de Mordor.</div>
+                        </article>
+
+                        <article id="articulo2" class="articulos_noticia articulo_noticia_right">
+
+                            <img src="img/noticias/minecraft.jpg" alt="Minecraft">
+                            <div class="articulos_titulo">Minecraft tiene nuevo dueño</div>
+                            <div class="articulos_cuerpo">La empresa creadora del videojuego Minecraft,
+                                la sueca Mojang, ha anunciado que ha sido adquirida por el gigante estadounidense 
+                                Microsoft por 2.500 millones de dólares (1.935.000.000 euros aproximadamente).
+                                Los fundadores de la empresa, grandes ganadores en esta operación, han anunciado su salida de la misma en la página web de Mojang.
+                                <br><br>    
+                                La operación aún está pendiente de las condiciones habituales de cierre y del análisis de los
+                                organismos reguladores, por lo que la compañía confía en que se pueda cerrar a finales de 
+                                este año. Asimismo, Microsoft estima que la operación empezará a ser rentable a partir del 
+                                próximo año fiscal.</div>
+
+                        </article>
+
+
+
+                        <article id="articulo3" class="articulos_noticia articulo_noticia_left">
+
+                            <img src="img/noticias/Destiny.jpg" alt="Destiny">
+                            <div class="articulos_titulo">Destiny</div>
+                            <div class="articulos_cuerpo">Un videojuego de acción y aventura donde los usuarios 
+                                crean y hacen evolucionar a su personaje para convertirse en leyendas de su propia 
+                                historia por salvar a la Tierra.</div>
+                            <!--  -->
+
+
+                        </article>
+
+
+                        <article id="articulo4" class="articulos_noticia articulo_noticia_right">
+
+                            <img src="img/noticias/alien.jpg" alt="Alien Isolation">
+                            <div class="articulos_titulo">Alien Isolation</div>
+                            <div class="articulos_cuerpo">Creative Assembly regresa a las raíces de la saga Alien en una entrega que recupera
+                                la esencia de la primera película, dirigida por Ridley Scott. Un survival horror en primera persona en el que 
+                                controlamos a Amanda Ripley quince años después de la desaparición de su madre.</div>
+
+                        </article>
+
+                    </section><!-- Sección de información principal -->
+                    <aside id="panelInfo"></aside><!-- Sección de información complementaria -->
+                </section>
+            </section>
+            <footer id="pie">
+                <section id="pieContenidos"><!-- Caja de información del pie -->
+                    <section id="enlaces"></section><!-- Información de contacto, condiciones legales, etc -->
+                    <section id="otros">
+                        <section id="redesSociales">
+                            <img src="img/iconos/iconoFacebook.png" alt="Facebook"/>
+                            <img src="img/iconos/iconoTwitter.png" alt="Twitter"/>
+
+                        </section>
+                        <section id="otraInfo">
+                            <a href="mailto:taronjagames@hotmail.com">
+                                <img src="img/iconos/email.png" alt="email"/>
+                            </a>
+
+                        </section>
+                    </section>
+                    <section id="infoContacto"><!-- Banda inferior del pie -->
+
+                        © Copyright 2014 Todos los derechos reservados Taronja Games 
+                        - Tel. 123456789 
+                        - Desarrollado por TaronjaDevelopers
+                    </section>
+                </section>
+
+                <section id="limitInf"></section><!-- Banda transparente inferior -->
+            </footer>
+        </section>
+
+    </body>
+
+</html>
