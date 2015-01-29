@@ -1,0 +1,657 @@
+@charset "UTF-8";
+/*HEMOS OMITIDO LAS TILDES Y OTROS CARACTERES EN LOS COMENTARIOS PORQUE NO SE VISUALIZAN CORRECTAMENTE*/
+@font-face {
+  /* Adjunta en el proyecto la fuente de la pagina web */
+  font-family: "Century Gothic";
+  src: url("../font/gothic.ttf") format("truetype"); }
+body {
+  width: 100%;
+  height: 100%;
+  min-width: 375px;
+  margin: 0;
+  background-color: white;
+  font-family: "Century Gothic" !important;
+  font-size: 15px; }
+
+#capaSuperior {
+  /* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto; }
+  #capaSuperior .botonBackEnd, #capaSuperior .botonBackEndVolver {
+    display: inline-block;
+    float: left;
+    font-size: 13px;
+    text-align: center;
+    margin: 15px 10px;
+    padding: 2px 10px;
+    border-radius: 4px;
+    border-left: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    color: white;
+    background-color: #ff6600;
+    box-shadow: 1px 1px 2px grey; }
+    #capaSuperior .botonBackEnd a, #capaSuperior .botonBackEndVolver a {
+      text-decoration: none;
+      color: white; }
+    #capaSuperior .botonBackEnd:hover, #capaSuperior .botonBackEndVolver:hover {
+      border-radius: 4px;
+      border-left: 1px solid black;
+      border-top: 1px solid black;
+      border-right: 1px solid lightgrey;
+      border-bottom: 1px solid lightgrey;
+      cursor: pointer;
+      color: #e6e6e6;
+      background-color: #ff6600;
+      box-shadow: none;
+      opacity: .9; }
+  #capaSuperior #header {
+    height: 130px; }
+    #capaSuperior #header #cabecera-Logo {
+      /* Seccion contenedora del logo de la empresa */
+      width: 200px;
+      height: 130px;
+      float: left; }
+      #capaSuperior #header #cabecera-Logo #logo {
+        margin: 10px;
+        width: 180px;
+        background-repeat: no-repeat; }
+        #capaSuperior #header #cabecera-Logo #logo:hover {
+          cursor: pointer; }
+    #capaSuperior #header #cabecera-Centro {
+      /* Seccion que podria tener algun contenido en algun momento futuro */
+      width: 630px;
+      height: 130px;
+      float: left; }
+    #capaSuperior #header #cabecera-Login {
+      /* Seccion contenedora del formulario de login de la pagina */
+      margin: 10px 15px;
+      width: 140px;
+      height: 110px;
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 7px; }
+      #capaSuperior #header #cabecera-Login #tituloLogin {
+        text-align: center;
+        font-size: 12px;
+        color: white; }
+      #capaSuperior #header #cabecera-Login #seccionUsuario, #capaSuperior #header #cabecera-Login #seccionPassword {
+        margin: 5px 7px;
+        height: 35px;
+        font-size: 11px;
+        color: white; }
+        #capaSuperior #header #cabecera-Login #seccionUsuario #campoUsuario, #capaSuperior #header #cabecera-Login #seccionUsuario #campoPassword, #capaSuperior #header #cabecera-Login #seccionPassword #campoUsuario, #capaSuperior #header #cabecera-Login #seccionPassword #campoPassword {
+          height: 12px; }
+      #capaSuperior #header #cabecera-Login .botonHeader {
+        /*Botones de logueo y acceso a clientes y empleados*/
+        text-align: center;
+        font-size: 10px;
+        margin: 4px 15px;
+        padding: 2px 10px;
+        border-radius: 4px;
+        border-left: 1px solid lightgrey;
+        border-top: 1px solid lightgrey;
+        border-right: 1px solid #ff6600;
+        border-bottom: 1px solid #ff6600;
+        color: white;
+        background-color: transparent;
+        box-shadow: 1px 1px 2px transparent; }
+        #capaSuperior #header #cabecera-Login .botonHeader a {
+          text-decoration: none;
+          color: white; }
+        #capaSuperior #header #cabecera-Login .botonHeader:hover {
+          border-radius: 4px;
+          border-left: 1px solid #ff6600;
+          border-top: 1px solid #ff6600;
+          border-right: 1px solid lightgrey;
+          border-bottom: 1px solid lightgrey;
+          cursor: pointer;
+          color: #e6e6e6;
+          background-color: rgba(150, 150, 150, 0.05);
+          box-shadow: none;
+          opacity: .9; }
+      #capaSuperior #header #cabecera-Login #botonClientes, #capaSuperior #header #cabecera-Login #botonEmpleados {
+        margin-top: 15px; }
+  #capaSuperior #menuPrincipal {
+    /* Menu horizontal superior que contiene los enlaces a las secciones principales de la web y el formulario de busqueda */
+    height: 30px; }
+    #capaSuperior #menuPrincipal #seccionesPrincipales {
+      /* Contenedor de enlaces a secciones principales de la pagina */
+      width: 600px;
+      height: 30px;
+      float: left;
+      color: white;
+      text-align: center;
+      margin-left: 150px; }
+      #capaSuperior #menuPrincipal #seccionesPrincipales p {
+        margin: 3px 15px; }
+      #capaSuperior #menuPrincipal #seccionesPrincipales .bloqueEnlaceMenuH {
+        /* Cada uno de los bloques contenedores de cada enlace */
+        height: 30px;
+        float: left;
+        color: white;
+        text-align: center; }
+        #capaSuperior #menuPrincipal #seccionesPrincipales .bloqueEnlaceMenuH p {
+          margin: 3px 15px; }
+        #capaSuperior #menuPrincipal #seccionesPrincipales .bloqueEnlaceMenuH:hover {
+          background-color: white;
+          color: black;
+          font-style: italic;
+          cursor: pointer;
+          transition-duration: .3s; }
+      #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoDesplegable {
+        height: 30px;
+        display: none;
+        float: left;
+        text-align: center;
+        margin: 2px 20px auto; }
+        #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoDesplegable #iconoMenuDesplegable {
+          width: 20px;
+          height: 20px; }
+          #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoDesplegable #iconoMenuDesplegable:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+            transition-duration: .3s; }
+      #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoHome {
+        height: 30px;
+        display: inline-block;
+        float: left;
+        text-align: center;
+        margin: 2px 20px auto; }
+        #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoHome #iconoHome {
+          width: 20px;
+          height: 20px; }
+          #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoHome #iconoHome:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+            transition-duration: .3s; }
+    #capaSuperior #menuPrincipal #bloqueBuscar {
+      /* Formulario de busqueda */
+      width: 200px;
+      height: 30px;
+      float: left;
+      color: white;
+      text-align: center;
+      float: right; }
+      #capaSuperior #menuPrincipal #bloqueBuscar p {
+        margin: 3px 15px; }
+      #capaSuperior #menuPrincipal #bloqueBuscar #campoBuscar {
+        margin-top: 4px;
+        float: right;
+        background-color: #ffe6d2; }
+      #capaSuperior #menuPrincipal #bloqueBuscar #botonBuscar {
+        margin: 7px 2px;
+        float: right;
+        height: 15px; }
+        #capaSuperior #menuPrincipal #bloqueBuscar #botonBuscar:hover {
+          cursor: pointer; }
+  #capaSuperior #menuDesplegable {
+    background-color: #ff6600;
+    height: 30px;
+    float: left;
+    color: white;
+    text-align: center;
+    display: none;
+    width: 200px;
+    height: auto;
+    margin-left: 10px;
+    position: absolute;
+    text-align: left;
+    box-shadow: 3px 3px 3px grey; }
+    #capaSuperior #menuDesplegable p {
+      margin: 3px 15px; }
+    #capaSuperior #menuDesplegable .bloqueEnlaceMenuDesplegable:hover {
+      background-color: white;
+      color: black;
+      font-style: italic;
+      cursor: pointer;
+      transition-duration: .3s; }
+  #capaSuperior #seccionCentral {
+    /* Seccion central de contenidos propiamente dicha (body) */
+    height: 745px; }
+    #capaSuperior #seccionCentral #menuVertical {
+      width: 15%;
+      font-size: 12px;
+      height: 745px;
+      float: left; }
+      #capaSuperior #seccionCentral #menuVertical .listaMenu {
+        /* Cada una de las listas que se corresponden con las secciones principales de la pagina */
+        margin: 15px 0;
+        width: 145px; }
+        #capaSuperior #seccionCentral #menuVertical .listaMenu #tituloMenuEmpleados {
+          cursor: pointer; }
+        #capaSuperior #seccionCentral #menuVertical .listaMenu .celdaTituloMenuV {
+          /* Titulo de cada una de las listas */
+          padding: 4px 0 4px 7px;
+          color: grey;
+          font-weight: bold;
+          background-color: rgba(190, 190, 190, 0.2);
+          box-shadow: 2px 1px #adadad;
+          border-radius: 4px; }
+        #capaSuperior #seccionCentral #menuVertical .listaMenu .itemMenuV {
+          /* Cada una de las opciones de lista del menu */
+          padding: 4px 12px;
+          box-shadow: 1px 1px #bbb;
+          border-radius: 4px;
+          color: black; }
+          #capaSuperior #seccionCentral #menuVertical .listaMenu .itemMenuV a {
+            text-decoration: none;
+            color: inherit; }
+          #capaSuperior #seccionCentral #menuVertical .listaMenu .itemMenuV:hover {
+            background-color: #ff6600;
+            color: white;
+            font-style: italic;
+            cursor: pointer;
+            transform: scale(1.03);
+            transition-duration: .3s; }
+    #capaSuperior #seccionCentral #contenidos {
+      /* Seccion dende se displayan los contenidos propiamente dichos. Tambien incluye un panel de informacion adicional */
+      width: 85%;
+      height: 745px;
+      float: left; }
+      #capaSuperior #seccionCentral #contenidos #cajaLogin {
+        /* Caja contenedora del formulario de logueo*/
+        margin: 150px 0 0 200px;
+        padding: 25px;
+        width: 250px;
+        color: white;
+        background-color: #ff6600;
+        border-radius: 15px;
+        box-shadow: 5px 5px 5px silver; }
+        #capaSuperior #seccionCentral #contenidos #cajaLogin .labelLogin, #capaSuperior #seccionCentral #contenidos #cajaLogin .campoLogin {
+          display: inline-block;
+          width: 35%;
+          margin-top: 5px; }
+        #capaSuperior #seccionCentral #contenidos #cajaLogin .campoLogin {
+          width: 60%; }
+          #capaSuperior #seccionCentral #contenidos #cajaLogin .campoLogin:focus {
+            background-color: cornsilk; }
+        #capaSuperior #seccionCentral #contenidos #cajaLogin #botonLoguear {
+          display: inline-block;
+          float: left;
+          font-size: 13px;
+          text-align: center;
+          margin: 15px 10px;
+          padding: 2px 10px;
+          border-radius: 4px;
+          border-left: 1px solid lightgrey;
+          border-top: 1px solid lightgrey;
+          border-right: 1px solid grey;
+          border-bottom: 1px solid grey;
+          color: white;
+          background-color: #ff6600;
+          box-shadow: 1px 1px 2px grey;
+          border-radius: 4px;
+          border-left: 1px solid lightgrey;
+          border-top: 1px solid lightgrey;
+          border-right: 1px solid rgba(0, 0, 0, 0.6);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+          color: white;
+          background-color: #ff6600;
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+          float: none;
+          margin-top: 15px; }
+          #capaSuperior #seccionCentral #contenidos #cajaLogin #botonLoguear a {
+            text-decoration: none;
+            color: white; }
+          #capaSuperior #seccionCentral #contenidos #cajaLogin #botonLoguear:hover {
+            border-radius: 4px;
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            border-right: 1px solid lightgrey;
+            border-bottom: 1px solid lightgrey;
+            cursor: pointer;
+            color: #e6e6e6;
+            background-color: #ff6600;
+            box-shadow: none;
+            opacity: .9; }
+          #capaSuperior #seccionCentral #contenidos #cajaLogin #botonLoguear:hover {
+            border-radius: 4px;
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            border-right: 1px solid lightgrey;
+            border-bottom: 1px solid lightgrey;
+            cursor: pointer;
+            color: #e6e6e6;
+            background-color: #ff6600;
+            box-shadow: none;
+            opacity: .9; }
+      #capaSuperior #seccionCentral #contenidos #tablaListado {
+        /* Tabla de gestion de clientes */
+        width: 750px;
+        margin-left: 60px; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado #tituloTabla {
+          margin: 80px 30px 15px;
+          font-weight: bold;
+          font-size: 18px; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .columna1 {
+          width: 90px; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .columna2 {
+          width: 180px; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .columna3 {
+          width: 230px; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .columna4 {
+          width: 100px; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .filaContenido:hover {
+          cursor: pointer;
+          background-color: #ffe6d2; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .celdaCabecera {
+          padding: 1px 10px;
+          display: inline-block;
+          box-shadow: 0 2px 2px grey;
+          background-color: #ff6600;
+          color: white; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .celdaContenido {
+          padding: 1px 10px;
+          display: inline-block;
+          border-bottom: 1px solid silver;
+          font-size: 12px; }
+        #capaSuperior #seccionCentral #contenidos #tablaListado .celdaIconoTabla {
+          padding: 2px 2px;
+          display: inline-block;
+          width: 20px; }
+          #capaSuperior #seccionCentral #contenidos #tablaListado .celdaIconoTabla .iconoTabla {
+            width: 15px;
+            height: 15px; }
+            #capaSuperior #seccionCentral #contenidos #tablaListado .celdaIconoTabla .iconoTabla:hover {
+              cursor: pointer;
+              transform: scale(1.2);
+              transition-duration: .3s; }
+      #capaSuperior #seccionCentral #contenidos #contenedorDetail {
+        /* Formulario de detalle de datos de un cliente */
+        width: 550px;
+        margin: 100px auto; }
+        #capaSuperior #seccionCentral #contenidos #contenedorDetail #tituloDetail {
+          padding: 3px 10px 1px;
+          margin-bottom: 10px;
+          box-shadow: 0 2px 2px grey;
+          background-color: #ff6600;
+          color: white; }
+        #capaSuperior #seccionCentral #contenidos #contenedorDetail .labelDetail {
+          padding: 1px 10px;
+          display: inline-block;
+          width: 170px;
+          margin-bottom: 3px;
+          color: grey;
+          border-bottom: 1px solid rgba(255, 102, 0, 0.6);
+          border-radius: 5px; }
+        #capaSuperior #seccionCentral #contenidos #contenedorDetail .inputDetail {
+          width: 345px;
+          padding-left: 5px;
+          background-color: #ffe6d2;
+          border-color: #ff6600;
+          border-style: none;
+          border-radius: 3px;
+          border-top-style: groove;
+          border-left-style: groove;
+          display: inline-block; }
+          #capaSuperior #seccionCentral #contenidos #contenedorDetail .inputDetail:focus {
+            background-color: cornsilk; }
+      #capaSuperior #seccionCentral #contenidos .botoneraMain {
+        /* Botonera de opciones, segun se seleccione cliente o empleado */
+        margin: 5% auto; }
+        #capaSuperior #seccionCentral #contenidos .botoneraMain .filaIconosBackEnd {
+          width: 100%;
+          text-align: center; }
+          #capaSuperior #seccionCentral #contenidos .botoneraMain .filaIconosBackEnd .cajaIconoBackEnd {
+            width: 25%;
+            height: auto;
+            display: inline-block;
+            margin: 15px 0 15px 15px;
+            border-radius: 15px;
+            background-color: #ff6600; }
+            #capaSuperior #seccionCentral #contenidos .botoneraMain .filaIconosBackEnd .cajaIconoBackEnd:hover {
+              box-shadow: 5px 5px 4px grey;
+              transform: translate(-3px, -3px);
+              transition-duration: .4s;
+              background-color: rgba(255, 102, 0, 0.8);
+              cursor: pointer; }
+            #capaSuperior #seccionCentral #contenidos .botoneraMain .filaIconosBackEnd .cajaIconoBackEnd img {
+              width: 100%;
+              height: 100%; }
+      #capaSuperior #seccionCentral #contenidos .botonBackEndVolver {
+        /* Boton para volver a pantalla anterior */
+        float: none;
+        margin: 10%; }
+      #capaSuperior #seccionCentral #contenidos #contenidoPrincipal {
+        /* Contenido propiamente dicho */
+        width: 680px;
+        height: 745px;
+        float: left; }
+        #capaSuperior #seccionCentral #contenidos #contenidoPrincipal .articulo {
+          /* Informaci├│n del contenedor principal de la p├ígina Home */
+          display: inline-block;
+          vertical-align: top;
+          width: 310px;
+          margin-left: 15px;
+          font-size: 13px;
+          text-align: left; }
+          #capaSuperior #seccionCentral #contenidos #contenidoPrincipal .articulo .imgContenidos {
+            width: 95%;
+            max-width: 310px;
+            height: auto;
+            margin-top: 20px;
+            background-repeat: no-repeat; }
+          #capaSuperior #seccionCentral #contenidos #contenidoPrincipal .articulo p {
+            margin: 0 0 5px 0;
+            padding: 0; }
+      #capaSuperior #seccionCentral #contenidos #panelInfo {
+        /* Panel reservado para informacion adicional y/o publicidad */
+        width: 170px;
+        height: 745px;
+        float: left;
+        background-color: rgba(0, 0, 0, 0.05); }
+        #capaSuperior #seccionCentral #contenidos #panelInfo p {
+          padding: 15px;
+          color: #969696; }
+  #capaSuperior #footer {
+    height: 120px;
+    background-color: #969696; }
+    #capaSuperior #footer #footerContenidos {
+      /* Seccion contenedora de los enlaces del footer a informacion de la pagina y a otras paginas (redes sociales, etc.) */
+      height: 102px; }
+      #capaSuperior #footer #footerContenidos #footerEnlaces {
+        /* Secci├│n contenedora de los enlaces internos a otras secciones */
+        font-size: 11px;
+        width: 600px;
+        height: 102px;
+        float: left; }
+        #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterIzquierda, #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterDerecha {
+          display: inline-block;
+          margin: 15px 60px;
+          text-align: left; }
+          #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterIzquierda .footerTituloMenu, #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterDerecha .footerTituloMenu {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 2px; }
+          #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterIzquierda .footerItemMenu, #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterDerecha .footerItemMenu {
+            color: #f0f0f0;
+            text-decoration: none; }
+            #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterIzquierda .footerItemMenu:hover, #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterDerecha .footerItemMenu:hover {
+              color: #ffc29a; }
+      #capaSuperior #footer #footerContenidos #iconosFooter {
+        /* Iconos de enlace a redes sociales y otras paginas externas u otros contenidos */
+        width: 400px;
+        height: 102px;
+        float: left; }
+        #capaSuperior #footer #footerContenidos #iconosFooter .iconoRedSocial {
+          width: 28px;
+          margin: 20px 7px;
+          float: right;
+          box-shadow: 3px 3px 2px grey; }
+          #capaSuperior #footer #footerContenidos #iconosFooter .iconoRedSocial:hover {
+            transform: scale(1.1);
+            transition-duration: .3s;
+            cursor: pointer; }
+        #capaSuperior #footer #footerContenidos #iconosFooter #iconoFacebook {
+          margin-right: 60px; }
+      #capaSuperior #footer #footerContenidos #infoContacto {
+        /* Banda inferior al footer con la informacion basica de contacto de la empresa */
+        text-align: center;
+        height: 18px;
+        color: white;
+        font-size: 10px; }
+        #capaSuperior #footer #footerContenidos #infoContacto a {
+          color: inherit; }
+
+#capaFondo {
+  /* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */
+  z-index: -1;
+  /* Se situa en un plano inferior */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  #capaFondo #fondoBandaSup {
+    height: 130px;
+    background-color: #ff6600; }
+  #capaFondo #fondoBandaBajoMenuH {
+    height: 30px;
+    background-color: #ff6600; }
+  #capaFondo #fondoCentro {
+    height: 745px;
+    background-color: transparent; }
+  #capaFondo #fondoBandaInf {
+    height: 120px;
+    background-color: transparent; }
+
+/***********************************************************************************************************************/
+/* REGLAS RESPONSIVE ***************************************************************************************************/
+/***********************************************************************************************************************/
+/* Dispositivos tipo smartphone */
+@media all and (max-width: 500px) {
+  #capaFondo {
+    /* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */ }
+    #capaFondo #fondoCentro {
+      height: 500px; }
+
+  #capaSuperior {
+    /* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+    width: 100%;
+    margin: 0 auto; }
+    #capaSuperior #header #cabecera-Centro {
+      /* Seccion que podria tener algun contenido en algun momento futuro */
+      display: none; }
+    #capaSuperior #header #cabecera-Login {
+      /* Seccion contenedora del formulario de login de la pagina */
+      float: right; }
+    #capaSuperior #menuPrincipal {
+      /* Menu horizontal superior que contiene los enlaces a las secciones principales de la web y el formulario de busqueda */
+      width: 30%; }
+      #capaSuperior #menuPrincipal #seccionesPrincipales {
+        width: 100%;
+        margin: 0; }
+        #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoHome {
+          margin: 3px 15px auto 0; }
+        #capaSuperior #menuPrincipal #seccionesPrincipales .bloqueEnlaceMenuH {
+          display: none; }
+        #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoDesplegable {
+          display: inline-block; }
+      #capaSuperior #menuPrincipal #bloqueBuscar {
+        /* Formulario de busqueda */
+        display: none; }
+    #capaSuperior #seccionCentral {
+      /* Seccion central de contenidos propiamente dicha */
+      width: 100%;
+      height: 500px; }
+      #capaSuperior #seccionCentral #menuVertical {
+        /* Se oculta el menu vertical */
+        display: none; }
+      #capaSuperior #seccionCentral #contenidos {
+        /* Seccion donde se displayan los contenidos propiamente dichos */
+        text-align: center;
+        width: 100%;
+        padding: 3% 0;
+        height: 500px; }
+        #capaSuperior #seccionCentral #contenidos #contenidoPrincipal {
+          width: 100%;
+          height: 94%;
+          overflow-y: scroll; }
+          #capaSuperior #seccionCentral #contenidos #contenidoPrincipal .articulo {
+            margin: 0 auto;
+            width: 95%; }
+        #capaSuperior #seccionCentral #contenidos #cajaLogin {
+          /* Formulario de login */
+          margin: 150px auto; }
+      #capaSuperior #seccionCentral #panelInfo {
+        display: none; }
+    #capaSuperior #footer #footerContenidos #footerEnlaces {
+      width: 50%; }
+      #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterDerecha {
+        display: none; }
+      #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterIzquierda {
+        margin: 15px 20px; }
+    #capaSuperior #footer #footerContenidos #iconosFooter {
+      /* Iconos de enlace a redes sociales y otras paginas externas u opciones */
+      width: 50%; }
+      #capaSuperior #footer #footerContenidos #iconosFooter #iconoFacebook {
+        margin-right: 20px; } }
+/* Dispositivos tipo tableta */
+@media all and (min-width: 501px) and (max-width: 800px) {
+  #capaSuperior {
+    /* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+    width: 100%; }
+    #capaSuperior #header #cabecera-Centro {
+      /* Seccion que podria tener algun contenido en algun momento futuro */
+      width: 5%; }
+    #capaSuperior #header #cabecera-Login {
+      /* Seccion contenedora del formulario de login de la pagina */
+      float: right; }
+    #capaSuperior #menuPrincipal #seccionesPrincipales {
+      /* Contenedor de enlaces a secciones principales de la pagina */
+      width: auto;
+      margin: 0; }
+      #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueFinanciacion, #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueSeguros {
+        display: none; }
+      #capaSuperior #menuPrincipal #seccionesPrincipales #bloqueIconoHome {
+        margin: 2px 0 auto 10px; }
+    #capaSuperior #menuPrincipal #bloqueBuscar {
+      /* Formulario de busqueda */
+      width: 173px; }
+    #capaSuperior #menuDesplegable {
+      display: none; }
+    #capaSuperior #seccionCentral {
+      /* Seccion central de contenidos propiamente dicha (body) */
+      width: 100%;
+      height: 600px; }
+      #capaSuperior #seccionCentral #menuVertical {
+        width: 15%;
+        height: 600px; }
+      #capaSuperior #seccionCentral #contenidos {
+        /* Seccion dende se displayan los contenidos propiamente dichos. Tambien incluye un panel de informacion adicional */
+        width: 70%;
+        height: 600px;
+        padding: 3% 10px;
+        float: right; }
+        #capaSuperior #seccionCentral #contenidos #contenidoPrincipal {
+          text-align: center;
+          width: auto;
+          height: 94%;
+          overflow-y: scroll; }
+          #capaSuperior #seccionCentral #contenidos #contenidoPrincipal .articulo {
+            margin: 0 auto;
+            width: 85%; }
+        #capaSuperior #seccionCentral #contenidos #cajaLogin {
+          margin: 150px auto; }
+      #capaSuperior #seccionCentral #panelInfo {
+        display: none; }
+    #capaSuperior #footer #footerContenidos #footerEnlaces {
+      width: 50%; }
+      #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterDerecha {
+        display: none; }
+      #capaSuperior #footer #footerContenidos #footerEnlaces #listaFooterIzquierda {
+        margin: 15px 20px; }
+    #capaSuperior #footer #footerContenidos #iconosFooter {
+      /* Iconos de enlace a redes sociales y otras paginas externas */
+      width: 50%; }
+      #capaSuperior #footer #footerContenidos #iconosFooter #iconoMail {
+        margin-right: 20px; }
+    #capaSuperior #capaFondo {
+      /* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */ }
+      #capaSuperior #capaFondo #fondoCentro {
+        height: 600px; } }
+
+/*# sourceMappingURL=style.css.map */

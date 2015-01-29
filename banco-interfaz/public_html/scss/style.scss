@@ -1,0 +1,816 @@
+@import "mixins.scss";
+
+//Variables tamaño total de la página
+$anchoPagina: 100%;//1280px
+$altoPagina: 100%;//1024px
+
+//Tamaños responsive
+$anchoTableta: 800px;//Dispositivo tipo tableta
+$altoZonaCentroTableta: 600px;
+$anchoTF: 500px;//Dispositivo tipo smartphone
+$altoZonaCentroTF: 500px;
+
+//Variables de color
+$colorFondo: white;
+$colorCorporativo: rgb(255,102,0);
+$colorGrisBase: rgb(150,150,150);
+$colorTransparencia: rgb(0,0,0);
+$colorFilaHover: #ffe6d2;
+
+$colorFondoTituloMenuV: rgb(190,190,190);
+$colorFondoLogin: rgb(255,255,255);
+$colorCampoBuscar: #ffe6d2;
+
+//Variables de texto
+$sizeFuenteBase: 15px;
+
+//Variables dimensiones bloques
+$anchoContenidos: 1000px;//Anchura del bloque de los contenidos propiamente dichos
+
+$altoHeader: 130px;
+$altoMenuHorizontal: 30px;
+$altoZonaCentro: 745px;
+$altoFooter: 120px;
+
+//otras variables
+$cursorActivo: pointer;
+
+
+/*HEMOS OMITIDO LAS TILDES Y OTROS CARACTERES EN LOS COMENTARIOS PORQUE NO SE VISUALIZAN CORRECTAMENTE*/
+
+
+
+@font-face{/* Adjunta en el proyecto la fuente de la pagina web */
+    font-family: "Century Gothic";
+    src: url("../font/gothic.ttf")  format('truetype');
+}
+
+body{
+    width: $anchoPagina;
+    height: $altoPagina;
+    min-width: 375px;
+
+    margin: 0;
+
+    background-color: $colorFondo;
+
+    font:{
+        family: "Century Gothic" !important;
+        size: $sizeFuenteBase;
+    }
+}
+
+#capaSuperior{/* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+    width: $anchoContenidos;
+    height: $altoPagina;
+    margin: 0 auto;
+
+    .botonBackEnd, .botonBackEndVolver{
+        @include estiloBotonBackEnd();
+    }
+
+    #header{
+        height: $altoHeader;
+
+        #cabecera-Logo{/* Seccion contenedora del logo de la empresa */
+            width: 200px;
+            height: $altoHeader;
+            float: left;
+
+            #logo{
+                margin: 10px;
+                width: 180px;
+                background-repeat: no-repeat;
+
+                &:hover{
+                    cursor: $cursorActivo;
+                }
+            }
+        }
+
+        #cabecera-Centro{/* Seccion que podria tener algun contenido en algun momento futuro */
+            width: 630px;
+            @include reglasComunesHeader();
+        }
+
+        #cabecera-Login{/* Seccion contenedora del formulario de login de la pagina */
+            margin: 10px 15px;
+            width: 140px;
+            height: 110px;
+
+            display: inline-block;
+
+            background-color: rgba($colorFondoLogin,.2);
+            border-radius: 7px;
+
+            #tituloLogin{
+                text-align: center;
+                font-size: 12px;
+                color: white;
+            }
+
+            #seccionUsuario, #seccionPassword{
+                margin: 5px 7px;
+                height: 35px;
+                font-size: 11px;
+                color: white;
+
+                #campoUsuario, #campoPassword{
+                    height: 12px;
+                }
+            }
+
+            .botonHeader{/*Botones de logueo y acceso a clientes y empleados*/
+                @include estiloBotonHeader();
+            }
+
+            #botonClientes, #botonEmpleados{
+                margin-top: 15px;
+            }
+        }
+    }
+
+
+    #menuPrincipal{/* Menu horizontal superior que contiene los enlaces a las secciones principales de la web y el formulario de busqueda */
+        height: $altoMenuHorizontal;
+
+        #seccionesPrincipales{/* Contenedor de enlaces a secciones principales de la pagina */
+            width: 600px;
+            @include reglasComunesMenuH();
+            margin-left: 150px;
+
+            .bloqueEnlaceMenuH{/* Cada uno de los bloques contenedores de cada enlace */
+                @include reglasComunesMenuH();
+
+                &:hover{
+                    background-color: white;
+
+                    color: black;
+                    font-style: italic;
+
+                    cursor: $cursorActivo;
+                    transition-duration: .3s;
+                }
+            }
+
+            #bloqueIconoDesplegable{
+                height: $altoMenuHorizontal;
+
+                display: none;
+                float: left;
+                text-align: center;
+                margin: 2px 20px auto;
+
+                & #iconoMenuDesplegable{
+                    @include sizeIcono(20px);
+
+                    &:hover{
+                        cursor: $cursorActivo;
+                        transform: scale(1.2);
+                        transition-duration: .3s;
+                    }
+                }
+
+            }
+
+            #bloqueIconoHome{
+                height: $altoMenuHorizontal;
+                display: inline-block;
+                float: left;
+                text-align: center;
+                margin: 2px 20px auto;
+
+                & #iconoHome{
+                    @include sizeIcono(20px);
+
+                    &:hover{
+                        cursor: $cursorActivo;
+                        transform: scale(1.2);
+                        transition-duration: .3s;
+                    }
+                }
+
+            }
+
+        }
+
+        #bloqueBuscar{/* Formulario de busqueda */
+            width: 200px;
+            @include reglasComunesMenuH();
+            float: right;//Debe ir detrás de reglasComunesMenuH() --> corrige el float: left; del mixin
+
+            #campoBuscar{
+                margin-top: 4px;
+                float: right;
+                background-color: $colorCampoBuscar;//$colorCampoBuscar solo aparece aqui, pero por comodidad creamos una variable al principio del documento
+            }
+            #botonBuscar{
+                margin: 7px 2px;
+                float: right;
+                height: 15px;
+
+                &:hover{
+                    cursor: $cursorActivo;
+                }
+            }
+
+        }
+    }
+
+    #menuDesplegable{
+        background-color: $colorCorporativo;
+        @include reglasComunesMenuH();
+        display: none;
+        width: 200px;
+        height: auto;
+        margin-left: 10px;
+        position: absolute;
+        text-align: left;
+        box-shadow: 3px 3px 3px grey;
+
+        .bloqueEnlaceMenuDesplegable:hover{
+            background-color: white;
+
+            color: black;
+            font-style: italic;
+
+            cursor: $cursorActivo;
+            transition-duration: .3s;
+        }
+    }
+
+
+
+    #seccionCentral{/* Seccion central de contenidos propiamente dicha (body) */
+        height: $altoZonaCentro;
+
+        #menuVertical{
+            width: 15%;
+            font-size: 12px;
+
+            @include reglasComunesZonaCentro();
+
+            .listaMenu{/* Cada una de las listas que se corresponden con las secciones principales de la pagina */
+                margin: 15px 0;
+                width: 145px;
+
+                #tituloMenuEmpleados{
+                    cursor: pointer;
+                }
+
+                .celdaTituloMenuV{/* Titulo de cada una de las listas */
+                    padding: 4px 0 4px 7px;
+                    color: grey;
+                    font-weight: bold;
+                    background-color: rgba($colorFondoTituloMenuV,.2);
+                    box-shadow: 2px 1px #adadad;
+                    border-radius: 4px;
+                }
+
+                .itemMenuV{/* Cada una de las opciones de lista del menu */
+                    padding: 4px 12px;
+                    box-shadow: 1px 1px #bbb;
+                    border-radius: 4px;
+                    color: black;
+
+                    & a{
+                        @include estiloEnlace(inherit);
+                    }
+
+                    &:hover{
+                        background-color: $colorCorporativo;
+
+                        color: white;
+                        font-style: italic;
+
+                        cursor: $cursorActivo;
+                        transform: scale(1.03);
+                        transition-duration: .3s;
+                    }
+                }
+
+            }
+
+        }
+
+        #contenidos{/* Seccion dende se displayan los contenidos propiamente dichos. Tambien incluye un panel de informacion adicional */
+            width: 85%;
+            @include reglasComunesZonaCentro();
+
+            #cajaLogin{/* Caja contenedora del formulario de logueo*/
+                margin: 150px 0 0 200px;
+                padding: 25px;
+                width: 250px;
+                color: white;
+                background-color: $colorCorporativo;
+                border-radius: 15px;
+                box-shadow: 5px 5px 5px silver;
+
+                .labelLogin, .campoLogin{
+                    display: inline-block;
+                    width: 35%;
+                    margin-top: 5px;
+                }
+                .campoLogin{
+                    width: 60%;
+
+                    &:focus{
+                        background-color: cornsilk;
+                    }
+                }
+
+                #botonLoguear{
+                    @include estiloBotonBackEnd();
+                    @include botonOut(lightgrey,rgba(rgb(0,0,0),.6),white,$colorCorporativo,rgba(rgb(0,0,0),.6));
+                    &:hover{
+                        @include botonIn(black,lightgrey,rgb(230,230,230),$colorCorporativo);
+                    }
+                    float: none;
+                    margin-top: 15px;
+                }
+            }
+
+            #tablaListado{/* Tabla de gestion de clientes */
+                width: 750px;
+                margin-left: 60px;
+
+                #tituloTabla{
+                    margin: 80px 30px 15px;
+                    font:{
+                        weight: bold;
+                        size: 18px;
+                    }
+                }
+
+                .columna1{
+                    width: 90px;
+                }
+                .columna2{
+                    width: 180px;
+                }
+                .columna3{
+                    width: 230px;
+                }
+                .columna4{
+                    width: 100px;
+                }
+
+                .filaContenido:hover{
+                    cursor: $cursorActivo;
+                    background-color: $colorFilaHover;
+                }
+
+                .celdaCabecera{
+                    @include formatoCeldasTabla(1px 10px);
+                    box-shadow: 0 2px 2px grey;
+                    background-color: $colorCorporativo;
+                    color: white;
+                }
+                .celdaContenido{
+                    @include formatoCeldasTabla(1px 10px);
+                    border-bottom: 1px solid silver;
+                    font-size: 12px;
+                }
+                .celdaIconoTabla{
+                    @include formatoCeldasTabla(2px 2px);
+                    width: 20px;
+
+                    .iconoTabla{
+                        @include sizeIcono(15px);
+
+                        &:hover{
+                            cursor: $cursorActivo;
+                            transform: scale(1.2);
+                            transition-duration: .3s;
+                        }
+                    }
+                }
+            }
+
+            #contenedorDetail{/* Formulario de detalle de datos de un cliente */
+                width: 550px;
+                margin: 100px auto;
+
+                #tituloDetail{
+                    padding: 3px 10px 1px;
+                    margin-bottom: 10px; 
+                    box-shadow: 0 2px 2px grey;
+                    background-color: $colorCorporativo;
+                    color: white;
+                }
+                .labelDetail{
+                    @include formatoCeldasTabla(1px 10px);
+                    width: 170px;
+                    margin-bottom: 3px;
+                    color: grey;
+                    border:{
+                        bottom: 1px solid rgba($colorCorporativo,.6);
+                        radius: 5px;
+                    }
+                }
+                .inputDetail{
+                    width: 345px;
+                    padding-left: 5px;
+                    background-color: $colorCampoBuscar;
+                    border:{
+                        color: $colorCorporativo;
+                        style: none;
+                        radius: 3px;
+                        top-style: groove;
+                        left-style: groove;
+                    }
+
+                    display: inline-block;
+
+                    &:focus{
+                        background-color: cornsilk;
+                    }
+                }
+            }
+
+            .botoneraMain{/* Botonera de opciones, segun se seleccione cliente o empleado */
+                margin: 5% auto;
+
+                .filaIconosBackEnd{
+                    width: 100%;
+                    text-align: center;
+
+                    .cajaIconoBackEnd{
+                        @include estiloPanelBackEnd($colorCorporativo);
+                    }
+                }
+
+            }
+
+            .botonBackEndVolver{/* Boton para volver a pantalla anterior */
+                float: none;
+                margin: 10%;
+            }
+
+
+            #contenidoPrincipal{/* Contenido propiamente dicho */
+                width: 680px;
+                @include reglasComunesZonaCentro();
+
+                .articulo{/* Información del contenedor principal de la página Home */
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 310px;
+                    //max-width: 310px;
+                    margin-left: 15px;
+                    font-size: 13px;
+                    text-align: left;
+
+                    .imgContenidos{
+                        width: 95%;
+                        max-width: 310px;
+                        height: auto;
+                        margin-top: 20px;
+                        background-repeat: no-repeat;
+                    }
+
+                    p{
+                        margin: 0 0 5px 0;
+                        padding: 0;
+                    }
+                }
+
+            }
+
+            #panelInfo{/* Panel reservado para informacion adicional y/o publicidad */
+                width: 170px;
+                @include reglasComunesZonaCentro();
+                background-color: rgba($colorTransparencia,.05);
+                p{
+                    padding: 15px;
+                    color: $colorGrisBase;
+                }
+            }
+        }
+    }
+
+
+    #footer{
+        height: $altoFooter;
+        background-color: $colorGrisBase;
+
+        #footerContenidos{
+            /* Seccion contenedora de los enlaces del footer a informacion de la pagina y a otras paginas (redes sociales, etc.) */
+            height: $altoFooter*0.85;
+
+            #footerEnlaces{/* Sección contenedora de los enlaces internos a otras secciones */
+                font-size: 11px;
+                width: 600px;
+                @include reglasComunesFooter();
+
+                #listaFooterIzquierda, #listaFooterDerecha{
+                    display: inline-block;
+                    margin: 15px 60px;
+                    text-align: left;
+
+                    .footerTituloMenu{
+                        color: white;
+                        font-weight: bold;
+                        margin-bottom: 2px;
+                    }
+                    .footerItemMenu{
+                        color: rgb(240,240,240);
+                        text-decoration: none;
+
+                        &:hover{
+                            color: #ffc29a;
+                        }
+                    }
+
+                }
+            }
+            #iconosFooter{/* Iconos de enlace a redes sociales y otras paginas externas u otros contenidos */
+                width: 400px;
+                @include reglasComunesFooter();
+
+                .iconoRedSocial{
+                    width: 28px;
+                    margin: 20px 7px;
+                    float: right;
+                    box-shadow: 3px 3px 2px grey;
+
+                    &:hover{
+                        transform: scale(1.1);
+                        transition-duration: .3s;
+                        cursor: $cursorActivo;
+                    }
+                }
+
+                #iconoFacebook{
+                    margin-right: 60px;
+                }
+            }
+            #infoContacto{/* Banda inferior al footer con la informacion basica de contacto de la empresa */
+                text-align: center;
+                height: $altoFooter*0.15;
+                color: white;
+                font-size: 10px;
+
+                a{
+                    color: inherit;
+                }
+            }
+        }
+    }
+}
+
+#capaFondo{/* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */
+    z-index: -1;/* Se situa en un plano inferior */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $anchoPagina;
+    height: $altoPagina;
+
+    #fondoBandaSup{
+        @include reglasCapaFondo($altoHeader, $colorCorporativo);
+    }
+    #fondoBandaBajoMenuH{
+        @include reglasCapaFondo($altoMenuHorizontal, $colorCorporativo);
+    }
+    #fondoCentro{
+        @include reglasCapaFondo($altoZonaCentro, transparent);
+    }
+    #fondoBandaInf{
+        @include reglasCapaFondo($altoFooter, transparent);
+        //@include reglasCapaFondo($altoFooter, $colorCorporativo);// Por si decidimos ponerlo en lugar del gris
+    }
+}
+
+
+
+/***********************************************************************************************************************/
+/* REGLAS RESPONSIVE ***************************************************************************************************/
+/***********************************************************************************************************************/
+
+/* Dispositivos tipo smartphone */
+@media all and (max-width: $anchoTF){
+    #capaFondo{/* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */
+        #fondoCentro{
+            height: $altoZonaCentroTF;
+        }
+    }
+
+    #capaSuperior{/* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+        width: 100%;
+        margin: 0 auto;
+
+        #header{
+
+            #cabecera-Centro{/* Seccion que podria tener algun contenido en algun momento futuro */
+                display: none;
+            }
+
+            #cabecera-Login{/* Seccion contenedora del formulario de login de la pagina */
+                float: right;
+            }
+        }
+
+
+        #menuPrincipal{/* Menu horizontal superior que contiene los enlaces a las secciones principales de la web y el formulario de busqueda */
+            width: 30%;
+            #seccionesPrincipales{
+                width: 100%;
+                margin: 0;
+
+                #bloqueIconoHome{
+                    margin: 3px 15px auto 0;
+                }
+
+                .bloqueEnlaceMenuH{
+                    display: none;
+                }
+
+                #bloqueIconoDesplegable{
+                    display: inline-block;
+                }
+
+            }
+
+            #bloqueBuscar{/* Formulario de busqueda */
+                display: none;
+            }
+        }
+
+
+        #seccionCentral{/* Seccion central de contenidos propiamente dicha */
+            width: 100%;
+            height: $altoZonaCentroTF;
+
+            #menuVertical{/* Se oculta el menu vertical */
+                display: none;
+            }
+
+            #contenidos{/* Seccion donde se displayan los contenidos propiamente dichos */
+                text-align: center;
+                width: 100%;
+                padding: 3% 0;
+                height: $altoZonaCentroTF;
+
+                #contenidoPrincipal{
+                    width: 100%;
+                    height: 94%;
+                    overflow-y: scroll;
+
+                    .articulo{
+                        margin: 0 auto;
+                        width: 95%;
+                    }
+                }
+
+                #cajaLogin{/* Formulario de login */
+                    margin: 150px auto;
+                }
+            }
+
+            #panelInfo{
+                display: none;
+            }
+        }
+
+
+        #footer{
+            #footerContenidos{
+                #footerEnlaces{
+                    width: 50%;
+
+                    #listaFooterDerecha{
+                        display: none;
+                    }
+
+                    #listaFooterIzquierda{
+                        margin: 15px 20px;
+                    }
+                }
+                #iconosFooter{/* Iconos de enlace a redes sociales y otras paginas externas u opciones */
+                    width: 50%;
+
+                    #iconoFacebook{
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//****************************************************************************************************************************************************
+//****************************************************************************************************************************************************
+
+/* Dispositivos tipo tableta */
+@media all and (min-width: 501px) and (max-width: $anchoTableta){
+
+    #capaSuperior{/* Capa que engloba todos los contenidos de la web; se situa por encima de la capa de fondo */
+        width: 100%;
+
+        #header{
+
+            #cabecera-Centro{/* Seccion que podria tener algun contenido en algun momento futuro */
+                width: 5%;
+            }
+            #cabecera-Login{/* Seccion contenedora del formulario de login de la pagina */
+                float: right;
+            }
+        }
+
+
+        #menuPrincipal{
+
+            #seccionesPrincipales{/* Contenedor de enlaces a secciones principales de la pagina */
+                width: auto;
+                margin: 0;
+
+                #bloqueFinanciacion, #bloqueSeguros{
+                    display: none;
+                }
+                #bloqueIconoHome{
+                    margin: 2px 0 auto 10px;
+                }
+            }
+
+            #bloqueBuscar{/* Formulario de busqueda */
+                width: 173px;
+            }
+        }
+
+        #menuDesplegable{
+            display: none;
+        }
+
+        #seccionCentral{/* Seccion central de contenidos propiamente dicha (body) */
+            width: 100%;
+            height: $altoZonaCentroTableta;
+
+            #menuVertical{
+                width: 15%;
+                height: $altoZonaCentroTableta;
+            }
+
+            #contenidos{/* Seccion dende se displayan los contenidos propiamente dichos. Tambien incluye un panel de informacion adicional */
+                width: 70%;
+                height: $altoZonaCentroTableta;
+                padding: 3% 10px;
+                float: right;
+
+                #contenidoPrincipal{
+                    text-align: center;
+                    width: auto;
+                    height: 94%;
+                    overflow-y: scroll;
+
+                    .articulo{
+                        margin: 0 auto;
+                        width: 85%;
+                    }
+
+                }
+
+                #cajaLogin{
+                    margin: 150px auto;
+                }
+            }
+
+            #panelInfo{
+                display: none;
+            }
+        }
+
+
+        #footer{
+            #footerContenidos{
+                #footerEnlaces{
+                    width: 50%;
+
+                    #listaFooterDerecha{
+                        display: none;
+                    }
+
+                    #listaFooterIzquierda{
+                        margin: 15px 20px;
+                    }
+                }
+                #iconosFooter{/* Iconos de enlace a redes sociales y otras paginas externas */
+                    width: 50%;
+
+                    #iconoMail{
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+
+        #capaFondo{/* Esta capa es para independizar el disenio del fondo de los contenidos propiamente dichos */
+            #fondoCentro{
+                height: $altoZonaCentroTableta;
+            }
+        }
+
+    }
+}
+
