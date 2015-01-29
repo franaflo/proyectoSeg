@@ -1,0 +1,10 @@
+@media all and (max-width: 800px) {
+  body #capaSuperior #header #cabeceraContenidos #cabeceraLogo img {
+    width: 97px; }
+  body #capaSuperior #menuH .menuH_plataforma {
+    font-size: 0.7em; }
+  body #capaSuperior #seccionCentral #contenidos #articulos .articulos_noticia {
+    width: 95%;
+    float: left; } }
+
+/*# sourceMappingURL=Responsive800pxStyle.css.map */
