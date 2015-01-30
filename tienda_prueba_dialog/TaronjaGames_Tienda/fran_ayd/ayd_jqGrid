@@ -1,0 +1,372 @@
+
+function mostrarListaUsuarios() {
+
+    var datos = "<table id='lista-usuarios'></table>\n\
+                    <div id='pager-usuarios'></div>";
+    $("#articulos").html(datos);
+
+
+    jQuery("#lista-usuarios").jqGrid({
+        url: 'persistencia/usuario/Usuario-findAll.php',
+        datatype: "json",
+        colNames: ['Id', 'Rol', 'Nombre', 'Apellido1', 'Apellido2', 'Dni', 'Tfno.', 'eMail', 'Login', 'Password'],
+        colModel: [
+            {name: 'idUsuario', index: 'idUsuario', width: 50, align: "center", resizable: true},
+            {name: 'rolUsuario', index: 'rolUsuario', width: 90, resizable: true},
+            {name: 'nombreUsuario', index: 'nombreUsuario', width: 80, resizable: true},
+            {name: 'apellido1Usuario', index: 'apellido1Usuario', width: 80, resizable: true},
+            {name: 'apellido2Usuario', index: 'apellido2Usuario', width: 80, resizable: true},
+            {name: 'dniUsuario', index: 'dniUsuario', width: 80, align: "right", resizable: true},
+            {name: 'telefonoUsuario', index: 'telefonoUsuario', width: 80, align: "right", resizable: true},
+            {name: 'emailUsuario', index: 'emailUsuario', width: 160, resizable: true},
+            {name: 'loginUsuario', index: 'loginUsuario', width: 90, resizable: true},
+            {name: 'passwordUsuario', index: 'passwordUsuario', width: 90, resizable: true}
+        ],
+        rowNum: 10,
+        rowList: [10, 20, 30],
+        pager: '#pager-usuarios',
+        sortname: 'idUsuario',
+        viewrecords: true,
+        sortorder: "desc",
+        caption: "Gestión de usuarios",
+        multiselect: true,
+        //width: 900,
+        height: "100%"
+                //, editurl: "persistencia/usuario/Usuario-new.php"//archivo PHP que hace la consulta correspondiente del CRUD????????????????????????????
+
+                //Función datePicker
+//            onSelectRow: function(id){
+//            if (id && id !== lastsel3) {
+//                jQuery('#rowed6').jqGrid('restoreRow', lastsel3);
+//                jQuery('#rowed6').jqGrid('editRow', id, true, pickdates);
+//                lastsel3 = id;
+//                }
+//            },
+//            editurl: "server.php",
+
+
+                //Asignar eventos a la selección de filas
+//        onSelectRow: function(id){
+//		if(id && id!==lastsel){
+//			jQuery('#rowed3').jqGrid('restoreRow',lastsel);
+//			jQuery('#rowed3').jqGrid('editRow',id,true);
+//			lastsel=id;
+//		}
+//	},
+//	editurl: "server.php"
+    });
+    jQuery("#lista-usuarios").jqGrid('navGrid', '#pager-usuarios', {edit: true, add: true, del: true, search: false},
+    {url: "persistencia/usuario/Usuario-edit.php"}, //url edit
+    {url: "persistencia/usuario/Usuario-new-grid.php"}, //url add
+    {url: "persistencia/usuario/Usuario-delete.php"}//url delete
+    );
+
+}
+
+
+//PARA BOTONES PERSONALIZADOS
+
+//    jQuery("#lista-usuarios").jqGrid('navGrid', '#pager-usuarios', {add: false, edit: false, del: false, search: false})
+////            .navSeparatorAdd('#pager-usuarios', {
+////                position: "first"
+////            })
+//            .navButtonAdd('#pager-usuarios', {
+//                caption: "",
+//                buttonicon: "ui-icon-trash",
+//                onClickButton: function () {
+//                    var gr = jQuery("#lista-usuarios").jqGrid('getGridParam', 'selrow');
+//                    if (gr != null) {
+//                        jQuery("#lista-usuarios").jqGrid('delGridRow', gr, {url: "persistencia/usuario/Usuario-delete.php",reloadAfterSubmit: true});
+//                    } else {
+//                        alert("Por favor, seleccione las filas a borrar!");
+//                    }
+//                },
+//                position: "first"
+//            })
+//            .navButtonAdd('#pager-usuarios', {
+//                caption: "",
+//                buttonicon: "ui-icon-pencil",
+//                onClickButton: function () {
+//                    var gr = jQuery("#lista-usuarios").jqGrid('getGridParam', 'selrow');
+//                    if (gr != null) {
+//                        jQuery("#lista-usuarios").jqGrid('editGridRow', gr, {reloadAfterSubmit: true});
+//                    } else {
+//                        alert("Por favor, seleccione una fila para editar!");
+//                    }
+//                },
+//                position: "first"
+//            })
+//            .navButtonAdd('#pager-usuarios', {
+//                caption: "",
+//                buttonicon: "ui-icon-plus",
+//                onClickButton: function () {
+//                    jQuery("#lista-usuarios").jqGrid('editGridRow', "new", {url: "persistencia/usuario/Usuario-new-grid.php"});
+//                },
+//                position: "first"
+//            });
+
+
+
+
+//    //NEW
+//    $("#add_lista-usuarios").click(function () {
+//        jQuery("#lista-usuarios").jqGrid('editGridRow', "new", {height: 280, reloadAfterSubmit: true});
+//    });
+//
+//
+//    //GET - BOTÓN DE BUSCAR --> MUESTRA FILTRO
+//    $("#search_lista-usuarios").click(function () {
+//        jQuery("#lista-usuarios").jqGrid('searchGrid',
+//                {sopt: ['cn', 'bw', 'eq', 'ne', 'lt', 'le', 'gt', 'ge', 'ew']}
+//        );
+//    });
+//    // by default all options are allowed. The codes are as follow:
+//    // bw - begins with ( LIKE val% )
+//    // eq - equal ( = )
+//    // ne - not equal ( <> )
+//    // lt - little ( < )
+//    // le - little or equal ( <= )
+//    // gt - greater ( > )
+//    // ge - greater or equal ( >= )
+//    // ew - ends with (LIKE %val )
+//    // cn - contain (LIKE %val% )
+//
+//
+//    //UPDATE
+//    $("#edit_lista-usuarios").click(function () {
+//        var gr = jQuery("#lista-usuarios").jqGrid('getGridParam', 'selrow');
+//        if (gr != null)
+//            jQuery("#lista-usuarios").jqGrid('editGridRow', gr, {height: 280, reloadAfterSubmit: true});
+//        else
+//            alert("Por favor, seleccione una fila para editar!");
+//    });
+//
+//
+//    //DELETE
+//    $("#del_lista-usuarios").click(function () {
+//        var gr = jQuery("#lista-usuarios").jqGrid('getGridParam', 'selrow');
+//        if (gr != null)
+//            jQuery("#lista-usuarios").jqGrid('delGridRow', gr, {reloadAfterSubmit: true});
+//        else
+//            alert("Por favor, seleccione las filas a borrar!");
+//    });
+
+
+
+
+//----------------------------------------------------------------------------------
+//FUNCIÓN PARA USAR EL DATEPICKER DE JQUERY UI
+//    function pickdates(id) {
+//        jQuery("#" + id + "_sdate", "#rowed6").datepicker({dateFormat: "yy-mm-dd"});
+//    }
+//----------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------
+
+//HTML PARA FORMULARIO BUSCAR ENCIMA DE LA TABLA
+//    <div class="h">Search By:</div>
+//<div>
+//	<input type="checkbox" id="autosearch" onclick="enableAutosubmit(this.checked)"> Enable Autosearch <br/>
+//	Code<br />
+//	<input type="text" id="search_cd" onkeydown="doSearch(arguments[0]||event)" />
+//</div>
+//<div>
+//	Name<br>
+//	<input type="text" id="item" onkeydown="doSearch(arguments[0]||event)" />
+//	<button onclick="gridReload()" id="submitButton" style="margin-left:30px;">Search</button>
+//</div>
+//
+//<br />
+
+
+//FUNCIONES PARA FORMULARIO BUSCAR
+//    var timeoutHnd;
+//    var flAuto = false;
+//
+//    function doSearch(ev) {
+//        if (!flAuto)
+//            return;
+//    //var elem = ev.target||ev.srcElement;
+//        if (timeoutHnd)
+//            clearTimeout(timeoutHnd)
+//        timeoutHnd = setTimeout(gridReload, 500)
+//    }
+//
+//    function gridReload() {
+//        var nm_mask = jQuery("#item_nm").val();
+//        var cd_mask = jQuery("#search_cd").val();
+//        jQuery("#bigset").jqGrid('setGridParam', {url: "bigset.php?nm_mask=" + nm_mask + "&cd_mask=" + cd_mask, page: 1}).trigger("reloadGrid");
+//    }
+//    function enableAutosubmit(state) {
+//        flAuto = state;
+//        jQuery("#submitButton").attr("disabled", state);
+//    }
+//----------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------
+////inlineNav
+//jQuery("#lista-usuarios").jqGrid('inlineNav', '#pager-usuarios');
+//
+//
+//BOTONES PARA Acciones de editar, guardar, cancelar guardado de fila (activa las celdas para edición)
+//    jQuery("#ed1").click(function () {
+//        jQuery("#rowed1").jqGrid('editRow', "13");
+//        this.disabled = 'true';
+//        jQuery("#sved1,#cned1").attr("disabled", false);
+//    });
+//    jQuery("#sved1").click(function () {
+//        jQuery("#rowed1").jqGrid('saveRow', "13");
+//        jQuery("#sved1,#cned1").attr("disabled", true);
+//        jQuery("#ed1").attr("disabled", false);
+//    });
+//    jQuery("#cned1").click(function () {
+//        jQuery("#rowed1").jqGrid('restoreRow', "13");
+//        jQuery("#sved1,#cned1").attr("disabled", true);
+//        jQuery("#ed1").attr("disabled", false);
+//    });
+//----------------------------------------------------------------------------------
+
+
+
+
+//----------------------------------------------------------------------------------
+//Operaciones sobre la selección
+//    jQuery("#m1").click(function () {
+//        var s;
+//        s = jQuery("#list9").jqGrid('getGridParam', 'selarrrow');
+//        alert(s);
+//    });
+//    jQuery("#m1s").click(function () {
+//        jQuery("#list9").jqGrid('setSelection', "13");
+//    });
+//----------------------------------------------------------------------------------
+
+
+//FILTER TOOL-BAR
+var dataArr = [
+    {id:1, name: 'steven', surname: "sanderson", startdate:'06/30/2013'},
+    {id:2, name: "valery", surname: "vitko", startdate: '07/27/2013'},
+    {id:3, name: "John", surname: "Smith", startdate: '12/30/2012'}];
+
+function fixSearchOperators() {
+    var $grid = $("#grid"),
+        columns = $grid.jqGrid ('getGridParam', 'colModel'),
+        filterToolbar = $($grid[0].grid.hDiv).find("tr.ui-search-toolbar");
+
+    filterToolbar.find("th").each(function(index) {
+        var $searchOper = $(this).find(".ui-search-oper");
+        if (!(columns[index].searchoptions && columns[index].searchoptions.searchOperators)) {
+            $searchOper.hide();
+        }
+    });
+}
+
+$("#grid").jqGrid({
+    data: dataArr,
+    datatype: "local",
+    gridview: true,
+    height: 'auto',
+    hoverrows: false,
+    colModel: [
+        { name: 'id', width: 60, sorttype: "int"},
+        { name: 'name', width: 70},
+        { name: 'surname', width: 100},
+        { name: 'startdate', sorttype: "date", width: 90,
+            searchoptions: {
+                searchOperators: true,
+                sopt: ['gt', 'eq'],
+                dataInit: function(elem) {
+                    $(elem).datepicker();
+                }
+            },
+            formatoptions: {
+                srcformat:'m/d/Y',
+                newformat:'m/d/Y'
+            }
+        }
+    ]
+});
+
+$("#grid").jqGrid('filterToolbar', {
+    searchOnEnter: false,
+    ignoreCase: true,
+    searchOperators: true
+});
+fixSearchOperators();
+
+
+
+
+    //    jQuery("#lista-usuarios").jqGrid('navGrid', '#pager-usuarios', {add: false, edit: false, del: false, search: false})
+////            .navSeparatorAdd('#pager-usuarios', {
+////                position: "first"
+////            })
+//            .navButtonAdd('#pager-usuarios', {
+//                caption: "",
+//                buttonicon: "ui-icon-trash",
+//                onClickButton: function () {
+//                    var gr = jQuery("#lista-usuarios").jqGrid('getGridParam', 'selrow');
+//                    if (gr != null) {
+//                        jQuery("#lista-usuarios").jqGrid('delGridRow', gr, {url: "persistencia/usuario/Usuario-delete.php",reloadAfterSubmit: true});
+//                    } else {
+//                        alert("Por favor, seleccione las filas a borrar!");
+//                    }
+//                },
+//                position: "first"
+//            })
+//            .navButtonAdd('#pager-usuarios', {
+//                caption: "",
+//                buttonicon: "ui-icon-pencil",
+//                onClickButton: function () {
+//                    var gr = jQuery("#lista-usuarios").jqGrid('getGridParam', 'selrow');
+//                    if (gr != null) {
+//                        jQuery("#lista-usuarios").jqGrid('editGridRow', gr, {reloadAfterSubmit: true});
+//                    } else {
+//                        alert("Por favor, seleccione una fila para editar!");
+//                    }
+//                },
+//                position: "first"
+//            })
+//            .navButtonAdd('#pager-usuarios', {
+//                caption: "",
+//                buttonicon: "ui-icon-plus",
+//                onClickButton: function () {
+//                    jQuery("#lista-usuarios").jqGrid('editGridRow', "new", {url: "persistencia/usuario/Usuario-new-grid.php"});
+//                },
+//                position: "first"
+//            });
+
+
+
+
+
+//jQuery("#add_lista-articulos").click(function() {
+//        //alert("Has clicado en añadir nuevo!");
+//        mostrarRegistroUsuario();
+//    });
+//
+//    jQuery("#edit_lista-articulos").click(function() {
+//        //alert("Has clicado en editar!");
+//        var idFila = jQuery("#lista-articulos").jqGrid('getGridParam', 'selrow');
+//        //alert(idFila);
+//        if (idFila != null) {
+//            jQuery("#lista-articulos").jqGrid('editGridRow', idFila,
+//            {url: "persistencia/articulo/Articulo-edit.php?id=" + idFila, reloadAfterSubmit:true});
+//        } else {
+//            alert("Por favor, seleccione un registro para editar!");
+//        }
+//    });
+//    
+//    jQuery("#del_lista-articulos").click(function() {
+//        //alert("Has clicado en borrar!");
+//        var idFila = jQuery("#lista-articulos").jqGrid('getGridParam', 'selrow');
+//        //alert(idFila);
+//        if (idFila != null) {
+//            jQuery("#lista-articulos").jqGrid('delGridRow', idFila,
+//            {url: "persistencia/articulo/Articulo-delete.php?id=" + idFila, reloadAfterSubmit:true});
+//        } else {
+//            alert("Por favor, seleccione los registros a borrar!");
+//        }
+//    });
