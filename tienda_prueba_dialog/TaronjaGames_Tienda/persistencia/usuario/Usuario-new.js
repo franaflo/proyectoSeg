@@ -1,7 +1,7 @@
 
 function mostrarRegistroUsuario() {
 
-    var datos = "<div id='bloqueRegistro' class='caja-formulario'>\n\
+    var datos = "<div id='bloqueRegistro' class='caja-formulario dialog-new' style='display: none'>\n\
                 <p id='tituloRegistroUsuario' class='tituloFormulario'>Registro de nuevo usuario.</p>\n\
                 <hr/>\n\
                 <section id='registro-bloqueCorreo' class='registro-bloqueDatos'>\n\
@@ -61,19 +61,30 @@ function mostrarRegistroUsuario() {
                 <br/>\n\
                 <section id='registro-botonera' class='formulario-botonera formulario-new-botonera'>\n\
                     <div id='registro-boton-enviar' class='formulario-boton formulario-new-boton'><span>Enviar</span></div>\n\
-                    <div id='registro-boton-cancelar' class='formulario-boton formulario-new-boton' onclick='mostrarNoticias()'>\n\
+                    <div id='registro-boton-cancelar' class='formulario-boton formulario-new-boton'>\n\
                         <span>Salir</span>\n\
                     </div>\n\
                 </section>\n\
             </div>";
 
 
-    $("#articulos").html(datos);//Opción usuario normal NO-dialog
+    $("#articulos").html(datos);
+
+    //Definición del dialog
+    $(function () {
+
+        $("#bloqueRegistro").dialog({
+            autoOpen: false,
+            modal: true,
+            title: "Gestión de usuarios",
+            minWidth: 550
+        });
+
+    });
 
 
     var formulario = "registro";
     var listaRequeridos = $("#bloqueRegistro input[class$='input-required']");
-    //var listaRequeridos = document.getElementsByClassName("input-required");
 
     var inputNombre = $("#registro-input-nombre");
     var inputApe1 = $("#registro-input-ape1");
@@ -148,16 +159,18 @@ function mostrarRegistroUsuario() {
     $("#registro-boton-enviar").click(function () {
         var errorValidacion = validarNewUsuario();
 
-
         //ENVÍO PARA REGISTRO EN BD
-//        alert(errorValidacion);
-//        errorValidacion = -1;
         if (errorValidacion === 0) {
             var rolUsuario = "usuario";
             registrarUsuario(rolUsuario, inputNombre.val(), inputApe1.val(), inputApe2.val(), inputNif.val(), inputTf.val(), inputCorreo.val(), inputUsuario.val(), inputPassword.val());
         }
 
-    });// Fin onclick botón enviar formulario
+    });
+    
+    //BOTÓN CANCELAR
+    $("#registro-boton-cancelar").click(function () {
+        $("#bloqueRegistro").dialog("close");
+    });
 
 }
 
@@ -167,7 +180,7 @@ function registrarUsuario($rol, $nombre, $ape1, $ape2, $nif, $tf, $correo, $logi
     $promesa.success(function (data) {
         if (data[0] !== null) {
             alert("El usuario '" + data[0].loginUsuario + "' se ha registrado correctamente");
-            mostrarNoticias();
+            //mostrarNoticias();
         } else {
             alert("Ha ocurrido un error: el usuario no ha podido ser registrado");
         }
