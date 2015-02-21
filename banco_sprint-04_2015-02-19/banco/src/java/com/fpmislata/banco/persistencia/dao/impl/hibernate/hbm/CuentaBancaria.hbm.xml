@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.fpmislata.banco.dominio.CuentaBancaria" table="cuentaBancaria" >
+        <id column="idCuentaBancaria" name="idCuentaBancaria" type="integer" access="field" >
+            <generator class="identity"/>
+        </id>
+        <property name="numeroCuentaBancaria" column="numeroCuentaBancaria" access="field" />
+        <property name="saldoCuentaBancaria" column="saldoCuentaBancaria" access="field" />
+        
+        <many-to-one name="sucursalBancaria">
+            <column name="idSucursalBancaria" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="cliente">
+            <column name="idCliente" />
+        </many-to-one>
+        <set name="movimientosBancarios"  cascade="all" inverse="true"  >
+            <key>
+                <column name="idCuentaBancaria"/>
+            </key>
+            <one-to-many class="com.fpmislata.banco.dominio.MovimientoBancario" />
+        </set>
+        
+    </class>
+</hibernate-mapping>
+
+<!-- <property name="idCliente" column="idCliente" access="field" /> -->
